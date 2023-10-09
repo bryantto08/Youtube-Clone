@@ -20,6 +20,17 @@ const storage = new Storage();
 
 const rawVideoBucketName = "bt88-yt-raw-videos";
 
+const videoCollectionId = "videos";
+
+// Question mark means we'll make it optional
+export interface Video {
+    id?: string,
+    uid?: string,
+    filename?: string,
+    status?: "processing" | "processed",
+    title?: string,
+    description?: string
+}
 export const createUser = functions.auth.user().onCreate((user) => {
     const userInfo = {
         uid: user.uid,
@@ -57,3 +68,8 @@ export const generateUploadUrl = onCall({maxInstances: 1}, async (request) => {
 
     return {url, filename};
 });
+
+export const getVideos = onCall({maxInstances: 1}, async() => {
+    const snapshot = await firestore.collection(videoCollectionId).limit(10).get();
+    return snapshot.docs.map((docs) => docs.data());
+})
