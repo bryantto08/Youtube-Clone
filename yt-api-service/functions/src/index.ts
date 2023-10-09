@@ -46,7 +46,7 @@ export const generateUploadUrl = onCall({maxInstances: 1}, async (request) => {
     const bucket = storage.bucket(rawVideoBucketName);  // Instance of our rawVideoBucket
 
     // Generate a unique filename
-    const filename = `${auth.uid}-${Date.now}.${data.fileExtension}`;
+    const filename = `${auth.uid}-${Date.now()}.${data.fileExtension}`;
 
     // Get a v4 signed URL for uploading file
     const [url] = await bucket.file(filename).getSignedUrl({
