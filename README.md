@@ -23,6 +23,10 @@ YouTube Clone can be visited [here](https://yt-web-client-n4w3k5hqlq-ue.a.run.ap
 * Docker - To Containerize our services
 
 
+## Currently Working On
+* Adding Unique Thumbnail to Each Video
+* Adding Searching Feature
+
 ## Contacts
 * bryantto08@gmail.com
 * https://github.com/bryantto08
