@@ -14,11 +14,12 @@ export interface Video {
     description?: string
 }
 
-export async function uploadVideo(file: File) {
+export async function uploadVideo(file: File, video: Video) {
     const response: any = await generateUploadUrl({
-        fileExtension: file.name.split(".").pop()
+        fileExtension: file.name.split(".").pop(),
+        video: video
     });
-
+    console.log(response.data.url);
     // Upload the file via the signedURL
     const uploadResult = await fetch(response?.data?.url, {
         method: "PUT",
@@ -28,6 +29,7 @@ export async function uploadVideo(file: File) {
         }
     });
     return uploadResult;
+   
 }
 
 export async function getVideos() {

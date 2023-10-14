@@ -22,3 +22,7 @@ YouTube Clone can be visited [here](https://yt-web-client-n4w3k5hqlq-ue.a.run.ap
     * Firebase Functions - Serverless Functions for uploading videos and updating database.
 * Docker - To Containerize our services
 
+
+## Contacts
+* bryantto08@gmail.com
+* https://github.com/bryantto08
